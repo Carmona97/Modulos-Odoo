@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_carmona_en8_bits_carmona_en8_bits,carmona_en8_bits.carmona_en8_bits,model_carmona_en8_bits_carmona_en8_bits,base.group_user,1,1,1,1
+access_carmona_en8_bits_usuarios,carmona_en8_bits.usuarios,model_carmona_en8_bits_usuarios,base.group_user,1,1,1,1
+access_carmona_en8_bits_cuentas,carmona_en8_bits.cuentas,model_carmona_en8_bits_cuentas,base.group_user,1,1,1,1
+access_carmona_en8_bits_personajes,carmona_en8_bits.personajes,model_carmona_en8_bits_personajes,base.group_user,1,1,1,1
+access_carmona_en8_bits_objetos,carmona_en8_bits.objetos,model_carmona_en8_bits_objetos,base.group_user,1,1,1,1
+access_carmona_en8_bits_misiones,carmona_en8_bits.misiones,model_carmona_en8_bits_misiones,base.group_user,1,1,1,1
+access_carmona_en8_bits_regiones,carmona_en8_bits.regiones,model_carmona_en8_bits_regiones,base.group_user,1,1,1,1

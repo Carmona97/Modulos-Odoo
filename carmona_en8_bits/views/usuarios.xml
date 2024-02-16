@@ -1,0 +1,100 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_usuarios_list">
+      <field name="name">carmona_en8_bits_usuarios_listado</field>
+      <field name="model">carmona_en8_bits.usuarios</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dni"/>
+          <field name="nombre"/>
+          <field name="apellidos"/>
+          <field name="fechaNacimiento"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_usuarios_form">
+      <field name="name">carmona_en8_bits_usuarios_formulario</field>
+      <field name="model">carmona_en8_bits.usuarios</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="dni"/>
+            <field name="nombre"/>
+            <field name="apellidos"/>
+            <field name="fechaNacimiento"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="carmona_en8_bits_usuarios_kanban">
+      <field name="name">carmona_en8_bits_usuarios_kanban</field>
+      <field name="model">carmona_en8_bits.usuarios</field>
+      <field name="arch" type="xml">
+        <kanban class="o_carmona_en8_bits_usuarios__kanban">
+            <field name="dni"/>
+            <field name="nombre"/>
+            <field name="apellidos"/>
+            <field name="fechaNacimiento"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="oe_kanban_details">
+                  <strong class="o_kanban_record_title">
+                    <field name="nombre" />
+                  </strong>
+                  <div t-if="record.dni.value">
+                    <t t-esc="record.dni.value" />
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="carmona_en8_bits_usuarios_ventana">
+      <field name="name">Ventana de Usuarios</field>
+      <field name="res_model">carmona_en8_bits.usuarios</field>
+      <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="carmona_en8_bits.action_server">
+      <field name="name">carmonaEn8Bits server</field>
+      <field name="model_id" ref="model_carmona_en8_bits_carmona_en8_bits"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="carmonaEn8Bits" id="carmona_en8_bits.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu" id="carmona_en8_bits.menu_usuarios" parent="carmona_en8_bits.menu_root"/>
+    <!-- actions -->
+
+    <menuitem name="Usuarios" id="carmona_en8_bits.menu_usuarios_list" parent="carmona_en8_bits.menu_usuarios"
+              action="carmona_en8_bits_usuarios_ventana"/>
+<!--    <menuitem name="Server to list" id="carmona_en8_bits" parent="carmona_en8_bits.menu_2"
+              action="carmona_en8_bits.action_server"/>
+-->
+  </data>
+</odoo>
+

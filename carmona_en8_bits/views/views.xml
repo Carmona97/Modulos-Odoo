@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="carmona_en8_bits.list">
+      <field name="name">carmonaEn8Bits list</field>
+      <field name="model">carmona_en8_bits.carmona_en8_bits</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="carmona_en8_bits.action_window">
+      <field name="name">carmonaEn8Bits window</field>
+      <field name="res_model">carmona_en8_bits.carmona_en8_bits</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="carmona_en8_bits.action_server">
+      <field name="name">carmonaEn8Bits server</field>
+      <field name="model_id" ref="model_carmona_en8_bits_carmona_en8_bits"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="carmonaEn8Bits" id="carmona_en8_bits.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="carmona_en8_bits.menu_1" parent="carmona_en8_bits.menu_root"/>
+    <menuitem name="Menu 2" id="carmona_en8_bits.menu_2" parent="carmona_en8_bits.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="carmona_en8_bits.menu_1_list" parent="carmona_en8_bits.menu_1"
+              action="carmona_en8_bits.action_window"/>
+    <menuitem name="Server to list" id="carmona_en8_bits" parent="carmona_en8_bits.menu_2"
+              action="carmona_en8_bits.action_server"/>
+-->
+  </data>
+</odoo>
