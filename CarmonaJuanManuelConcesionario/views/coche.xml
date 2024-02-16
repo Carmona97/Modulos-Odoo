@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+
+      <record model="ir.ui.view" id="concesionario.list">
+        <field name="name">concesionario.coche_listado</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="modelo"/>
+            <field name="fecha"/>
+            <field name="puertas"/>
+            <field name="motor"/>
+            <field name="marca"/>
+          </tree>
+        </field>
+      </record>
+
+      <record model="ir.ui.view" id="concesionario.form">
+        <field name="name">concesionario.coche_formulario</field>
+        <field name="model">concesionario.coche</field>
+        <field name="arch" type="xml">
+          <form>
+            <group>
+              <field name="modelo"/>
+              <field name="fecha"/>
+              <field name="puertas"/>
+              <field name="motor"/>
+              <field name="marca"/>
+            </group>
+          </form>
+        </field>
+      </record>
+
+  
+      <!-- actions opening views on models -->
+
+      <record model="ir.actions.act_window" id="concesionario.coche_ventana_listado">
+        <field name="name">Listado de coches</field>
+        <field name="res_model">concesionario.coche</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="concesionario.coche_ventana_formulario">
+        <field name="name">Formulario de coches</field>
+        <field name="res_model">concesionario.coche</field>
+        <field name="view_mode">form</field>
+      </record>
+  
+      <!-- Top menu item -->
+
+      <menuitem name="Concesionario" id="concesionario.menu_root"/>
+
+      <!-- menu categories -->
+
+      <menuitem name="Coches" id="concesionario.menu_2" parent="concesionario.menu_root"/>
+
+      <!-- actions -->
+
+      <menuitem name="Listar" id="concesionario.menu_2_list" parent="concesionario.menu_2"
+                action="concesionario.coche_ventana_listado"/>
+      <menuitem name="Formulario" id="concesionario.menu_2_form" parent="concesionario.menu_2"
+                action="concesionario.coche_ventana_formulario"/>
+
+    </data>
+  </odoo>

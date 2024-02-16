@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+
+      <record model="ir.ui.view" id="concesionario.list">
+        <field name="name">concesionario.marca_listado</field>
+        <field name="model">concesionario.marca</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="nombre"/>
+            <field name="sede"/>
+            <field name="director"/>
+            <field name="direccion"/>
+          </tree>
+        </field>
+      </record>
+
+      <record model="ir.ui.view" id="concesionario.form">
+        <field name="name">concesionario.marca_formulario</field>
+        <field name="model">concesionario.marca</field>
+        <field name="arch" type="xml">
+          <form>
+            <group>
+              <field name="nombre"/>
+              <field name="sede"/>
+              <field name="director"/>
+              <field name="direccion"/>
+              </group>
+          </form>
+        </field>
+      </record>
+
+  
+      <!-- actions opening views on models -->
+
+      <record model="ir.actions.act_window" id="concesionario.marca_ventana_listado">
+        <field name="name">Lista de marcas</field>
+        <field name="res_model">concesionario.marca</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="concesionario.marca_ventana_formulario">
+        <field name="name">Formulario de marcas</field>
+        <field name="res_model">concesionario.marca</field>
+        <field name="view_mode">form</field>
+      </record>
+  
+      <!-- Top menu item -->
+
+      <menuitem name="Concesionario" id="concesionario.menu_root"/>
+
+      <!-- menu categories -->
+
+      <menuitem name="Marcas" id="concesionario.menu_1" parent="concesionario.menu_root"/>
+
+      <!-- actions -->
+
+      <menuitem name="Listar" id="concesionario.menu_1_list" parent="concesionario.menu_1"
+                action="concesionario.marca_ventana_listado"/>
+      <menuitem name="Formulario" id="concesionario.menu_1_form" parent="concesionario.menu_1"
+                action="concesionario.marca_ventana_formulario"/>
+
+    </data>
+  </odoo>
