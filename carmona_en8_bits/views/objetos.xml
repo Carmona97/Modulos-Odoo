@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_objetos_list">
+      <field name="name">carmona_en8_bits_objetos_listado</field>
+      <field name="model">carmona_en8_bits.objetos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombreObjeto"/>
+          <field name="descripcion"/>
+          <field name="tipo"/>
+          <field name="precio"/>
+          <field name="intercambiable"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_objetos_form">
+      <field name="name">carmona_en8_bits_objetos_formulario</field>
+      <field name="model">carmona_en8_bits.objetos</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="nombreObjeto"/>
+            <field name="objetosPersonajes"/>
+            <field name="descripcion"/>
+            <field name="imagenObjeto" widget="image"/>
+            <field name="tipo"/>
+            <field name="precio"/>
+            <field name="intercambiable"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_objetos_kanban">
+      <field name="name">carmona_en8_bits_objetos_kanban</field>
+      <field name="model">carmona_en8_bits.objetos</field>
+      <field name="arch" type="xml">
+        <kanban class="o_carmona_en8_bits_objetos__kanban">
+            <field name="nombreObjeto"/>
+            <field name="descripcion"/>
+            <field name="tipo"/>
+            <field name="precio"/>
+            <field name="intercambiable"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="o_kanban_image">
+                        <img t-att-src="'data:image/png;base64,%s' % record.imagenObjeto"/>
+                    </div>
+                    <div class="o_kanban_details">
+                        <strong class="o_kanban_record_title">
+                            <field name="nombreObjeto"/>
+                        </strong>
+                        <div class="o_kanban_record_subtitle">
+                            <field name="descripcion"/>
+                        </div>
+                        <div class="o_kanban_record_bottom">
+                            <div class="o_kanban_record_bottom_left">
+                                <field name="tipo"/>
+                            </div>
+                            <div class="o_kanban_record_bottom_right">
+                                <field name="precio"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="carmona_en8_bits_objetos_ventana">
+      <field name="name">Ventana de Objetos</field>
+      <field name="res_model">carmona_en8_bits.objetos</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="carmonaEn8Bits" id="carmona_en8_bits.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu de objetos" id="carmona_en8_bits.menu_objetos" parent="carmona_en8_bits.menu_root"/>
+    <!-- actions -->
+
+    <menuitem name="Agregar objeto" id="carmona_en8_bits.menu_objetos_list" parent="carmona_en8_bits.menu_objetos"
+              action="carmona_en8_bits_objetos_ventana"/>
+<!--    <menuitem name="Server to list" id="carmona_en8_bits" parent="carmona_en8_bits.menu_2"
+              action="carmona_en8_bits.action_server"/>
+-->
+  </data>
+</odoo>
+

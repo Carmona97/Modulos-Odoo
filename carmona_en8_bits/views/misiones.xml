@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_misiones_list">
+      <field name="name">carmona_en8_bits_misiones_listado</field>
+      <field name="model">carmona_en8_bits.misiones</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idMision"/>
+          <field name="nombreMision"/>
+          <field name="misionPersonajes"/>
+          <field name="region"/>
+          <field name="descripcion"/>
+          <field name="recompensas"/>
+          <field name="estado"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="carmona_en8_bits_misiones_form">
+      <field name="name">carmona_en8_bits_misiones_formulario</field>
+      <field name="model">carmona_en8_bits.misiones</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+          <field name="idMision"/>
+          <field name="nombreMision"/>
+          <field name="misionPersonajes"/>
+          <field name="region"/>
+          <field name="descripcion"/>
+          <field name="recompensas"/>
+          <field name="estado"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="carmona_en8_bits_misiones_kanban">
+      <field name="name">carmona_en8_bits_misiones_kanban</field>
+      <field name="model">carmona_en8_bits.misiones</field>
+      <field name="arch" type="xml">
+        <kanban class="o_carmona_en8_bits_misiones__kanban">
+          <field name="idMision"/>
+          <field name="nombreMision"/>
+          <field name="misionPersonajes"/>
+          <field name="region"/>
+          <field name="descripcion"/>
+          <field name="recompensas"/>
+          <field name="estado"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="oe_kanban_details">
+                  <strong class="o_kanban_record_title">
+                    <field name="nombreMision" />
+                  </strong>
+                  <div t-if="record.nombreMision.value">
+                    <t t-esc="record.nombreMision.value" />
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="carmona_en8_bits_misiones_ventana">
+      <field name="name">Ventana de misiones</field>
+      <field name="res_model">carmona_en8_bits.misiones</field>
+      <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="carmonaEn8Bits" id="carmona_en8_bits.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu de misiones" id="carmona_en8_bits.menu_misiones" parent="carmona_en8_bits.menu_root"/>
+    <!-- actions -->
+
+    <menuitem name="Agregar misiones" id="carmona_en8_bits.menu_misiones_list" parent="carmona_en8_bits.menu_misiones"
+              action="carmona_en8_bits_misiones_ventana"/>
+<!--    <menuitem name="Server to list" id="carmona_en8_bits" parent="carmona_en8_bits.menu_2"
+              action="carmona_en8_bits.action_server"/>
+-->
+  </data>
+</odoo>
+

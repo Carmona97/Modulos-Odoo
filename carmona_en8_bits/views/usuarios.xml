@@ -65,32 +65,16 @@
       <field name="view_mode">tree,kanban,form</field>
     </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="carmona_en8_bits.action_server">
-      <field name="name">carmonaEn8Bits server</field>
-      <field name="model_id" ref="model_carmona_en8_bits_carmona_en8_bits"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
     <!-- Top menu item -->
 
     <menuitem name="carmonaEn8Bits" id="carmona_en8_bits.menu_root"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Menu" id="carmona_en8_bits.menu_usuarios" parent="carmona_en8_bits.menu_root"/>
+    <menuitem name="Menu de usuarios" id="carmona_en8_bits.menu_usuarios" parent="carmona_en8_bits.menu_root"/>
     <!-- actions -->
 
-    <menuitem name="Usuarios" id="carmona_en8_bits.menu_usuarios_list" parent="carmona_en8_bits.menu_usuarios"
+    <menuitem name="Agregar usuario" id="carmona_en8_bits.menu_usuarios_list" parent="carmona_en8_bits.menu_usuarios"
               action="carmona_en8_bits_usuarios_ventana"/>
 <!--    <menuitem name="Server to list" id="carmona_en8_bits" parent="carmona_en8_bits.menu_2"
               action="carmona_en8_bits.action_server"/>
