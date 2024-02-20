@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="exameninstituto.asignatura_lista">
+            <field name="name">exameninstituto_asignatura_lista</field>
+            <field name="model">exameninstituto.asignatura</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombreAsignatura" />
+                    <field name="nivel" />
+                    <field name="imagen" />
+                    <field name="profesor" />
+                    <field name="alumnado" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="exameninstituto.asignatura_formulario">
+            <field name="name">exameninstituto_asignatura_formulario</field>
+            <field name="model">exameninstituto.asignatura</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook>
+                            <page string="Información del asignatura">
+                                <group>
+                                    <field name="nombreAsignatura" />
+                                    <field name="nivel" />
+                                    <field name="imagen" widget="image"/>
+                                    <field name="profesor" />
+                                    <field name="alumnado" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="exameninstituto.asignatura_kanban">
+            <field name="name">exameninstituto_asignatura_kanban</field>
+            <field name="model">exameninstituto.asignatura</field>
+            <field name="arch" type="xml">
+                <kanban class="o_exameninstituto_asignatura_kanban">
+                    <field name="id"/>
+                    <field name="nombreAsignatura" />
+                    <field name="nivel" />
+                    <field name="imagen"/>
+                    <field name="profesor" />
+                    <field name="alumnado" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_image_64_contain">
+                                    <img alt="Imagen del objeto" t-if="record.imagen" t-att-src="kanban_image('exameninstituto.asignatura', 'imagen', record.id.raw_value)" style="width:80px; height:80px"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="nombreAsignatura"/>
+                                    </strong>
+                                    <div t-if="record.descripcion.value">
+                                        <t t-esc="record.descripcion.value" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+
+        <record model="ir.actions.act_window" id="exameninstituto.asignatura_ventana">
+            <field name="name">Ventana asignaturas</field>
+            <field name="res_model">exameninstituto.asignatura</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <menuitem name="Instituto" id="exameninstituto.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu de asignaturas" id="exameninstituto.menu_asignatura" parent="exameninstituto.menu_root"/>
+        <!-- actions -->
+
+        <menuitem name="asignatura" id="exameninstituto.menu_asignatura_list" parent="exameninstituto.menu_asignatura" action="exameninstituto.asignatura_ventana"/>
+
+    </data>
+</odoo>

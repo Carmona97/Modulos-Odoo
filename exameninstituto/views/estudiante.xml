@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="exameninstituto.estudiante_lista">
+            <field name="name">exameninstituto_estudiante_lista</field>
+            <field name="model">exameninstituto.estudiante</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombreEstudiante" />
+                    <field name="apellidos" />
+                    <field name="direccion" />
+                    <field name="ciudad" />
+                    <field name="asignaturas" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="exameninstituto.estudiante_formulario">
+            <field name="name">exameninstituto_estudiante_formulario</field>
+            <field name="model">exameninstituto.estudiante</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook>
+                            <page string="Informacion del estudiante">
+                                <group>
+                                    <field name="nombreEstudiante" />
+                                    <field name="apellidos" />
+                                    <field name="direccion" />
+                                    <field name="ciudad" />
+                                    <field name="asignaturas" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+
+        <record model="ir.actions.act_window" id="exameninstituto.estudiante_ventana">
+            <field name="name">Ventana estudiantes</field>
+            <field name="res_model">exameninstituto.estudiante</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <menuitem name="Instituto" id="exameninstituto.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu de estudiantes" id="exameninstituto.menu_estudiante" parent="exameninstituto.menu_root"/>
+        <!-- actions -->
+
+        <menuitem name="estudiante" id="exameninstituto.menu_estudiante_list" parent="exameninstituto.menu_estudiante" action="exameninstituto.estudiante_ventana"/>
+    
+    </data>
+</odoo>
